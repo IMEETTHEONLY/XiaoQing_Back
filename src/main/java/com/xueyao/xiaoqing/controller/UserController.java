@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping("/userinfo")
-    public Result userinfo() {
+    public Result<User> userinfo() {
         User u = userService.getUserInfo();
         return Result.success(u);
     }
