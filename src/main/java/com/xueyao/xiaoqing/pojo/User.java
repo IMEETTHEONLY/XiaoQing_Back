@@ -14,14 +14,14 @@ public class User {
     @NotNull
     private Integer id;
 
-    @Pattern(regexp = "^\\S{1,12}$")
+    @Pattern(regexp = "^\\S{5,12}$")
     private String username;
 
     @JsonIgnore
     private String password;
 
     @JsonIgnore
-    private String stuNumber;
+    private String stunumber;
 
     @Pattern(regexp = "^\\S{1,15}$")
     private String nickname;
