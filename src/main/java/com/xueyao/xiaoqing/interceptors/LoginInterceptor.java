@@ -28,13 +28,14 @@ public class LoginInterceptor implements HandlerInterceptor {
             ThreadLocalUtil.set(claims);
             // 放行
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             // 拦截
             System.out.println(request.getRequestURI());
             response.setStatus(401);
             return false;
         }
     }
+
     // 后置处理
     // 删除ThreadLocal中的数据以防止内存泄漏
     @Override
