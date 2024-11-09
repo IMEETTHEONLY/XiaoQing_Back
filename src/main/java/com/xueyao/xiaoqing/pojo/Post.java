@@ -18,7 +18,7 @@ public class Post {
 
     //帖子创建者
     @NotNull
-    private User createUser;
+    private int createUser;
 
     //帖子创建时间
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")

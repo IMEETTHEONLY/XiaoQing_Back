@@ -29,7 +29,7 @@ public class UserController {
     @GetMapping("/login")
     public Result login(@RequestParam @Pattern(regexp = "^\\S{5,12}$") String username, @Pattern(regexp = "^\\S{5,16}$") String password) {
         String token = userService.login(username, password);
-        System.out.println(token);
+       // System.out.println(token);
         return Result.success(token);
     }
 
