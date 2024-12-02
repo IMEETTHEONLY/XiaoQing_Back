@@ -16,11 +16,22 @@ public interface PostMapper {
 
 
 
-    //删除帖子同时删除帖子下面的评论
+//    //删除帖子同时删除帖子下面的评论
     @Delete("delete from post where id=#{id}")
     void deletePost(Integer id);
     @Delete("delete from comm where post_id=#{id}")
     void deleteComment(Integer id);
+
+
+
+
+
+
+
+
+
+
+
 
 
     //统计帖子总数量

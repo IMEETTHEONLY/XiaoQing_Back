@@ -3,6 +3,7 @@ package com.xueyao.xiaoqing.controller;
 
 import com.xueyao.xiaoqing.pojo.Result;
 import com.xueyao.xiaoqing.pojo.User;
+import com.xueyao.xiaoqing.pojo.UserAccept;
 import com.xueyao.xiaoqing.service.UserService;
 import jakarta.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.URL;
@@ -15,24 +16,26 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 @Validated
+
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     @PostMapping("/register")
-    public Result register(@Pattern(regexp = "^\\S{5,12}$") String username, @Pattern(regexp = "^\\S{5,16}$") String password) {
-        userService.register(username, password);
+    public Result register(@RequestBody UserAccept user) {
+        userService.register(user.getUsername(), user.getPassword());
         return Result.success();
     }
 
     @GetMapping("/login")
-    public Result login(@RequestParam @Pattern(regexp = "^\\S{5,12}$") String username, @Pattern(regexp = "^\\S{5,16}$") String password) {
+    public Result login(@RequestParam  String username,  String password) {
         String token = userService.login(username, password);
        // System.out.println(token);
         return Result.success(token);
     }
 
+    //根据token里面的id获取用户信息
     @GetMapping("/userinfo")
     public Result<User> userinfo() {
         User u = userService.getUserInfo();
@@ -67,5 +70,12 @@ public class UserController {
     public Result bindEds(@RequestBody Map<String, String> eds) {
         userService.updateEds(eds);
         return Result.success();
+    }
+
+    //根据用户id获取用户信息
+    @GetMapping("/getUserById")
+    public Result getUserById(@RequestParam Integer id){
+        User user = userService.getUserById(id);
+        return Result.success(user);
     }
 }

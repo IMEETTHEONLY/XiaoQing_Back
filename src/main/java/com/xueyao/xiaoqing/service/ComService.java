@@ -3,6 +3,8 @@ package com.xueyao.xiaoqing.service;
 import com.xueyao.xiaoqing.pojo.Comment;
 import com.xueyao.xiaoqing.pojo.PageBean;
 
+import java.util.ArrayList;
+
 public interface ComService {
     //增加评论
     void addComment(Comment comment);
@@ -17,5 +19,6 @@ public interface ComService {
     //根据id查询p评论
     Comment getComById(Integer id);
 
-
+    //根据master_id查询子评论
+    ArrayList<Comment> getChildCom(Integer masterId);
 }

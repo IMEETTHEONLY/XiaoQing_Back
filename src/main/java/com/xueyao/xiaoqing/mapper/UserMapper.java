@@ -13,7 +13,7 @@ public interface UserMapper {
 
     @Select("select * from user where username = #{username}")
     User getUserByUsername(String username);
-
+    //根据token里面的id获取用户信息
     @Select("select * from user where id = #{id}")
     User getUserById(Integer id);
 
@@ -31,4 +31,8 @@ public interface UserMapper {
 
     @Update("update user set stunumber = #{stuNumber}, eds_psd = #{edsPsd} where id = #{id}")
     void updateEds(Integer id, String stuNumber, String edsPsd);
+
+    //根据id获取当前用户的信息
+    @Select("select * from user where id = #{id}")
+    User getUserInfo(Integer id);
 }

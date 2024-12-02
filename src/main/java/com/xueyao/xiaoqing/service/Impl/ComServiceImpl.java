@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -62,8 +63,13 @@ public class ComServiceImpl implements ComService {
 
     @Override
     public Comment getComById(Integer id) {
-        //调用mapper接口即可
-        Comment result = comMapper.getComById(id);
-        return result;
+        return comMapper.getComById(id);
     }
+    //根据master_id查询所有子评论
+    @Override
+    public ArrayList<Comment> getChildCom(Integer masterId) {
+        return  comMapper.getChildCom(masterId);
+    }
+
+
 }

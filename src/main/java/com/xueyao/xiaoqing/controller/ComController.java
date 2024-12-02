@@ -19,6 +19,7 @@ public class ComController {
     public Result addComment(@RequestBody  Comment comment){
       log.info( "新增评论，内容：{}", comment.toString());
       //调用service进行业务处理
+
        comService.addComment(comment);
         return Result.success();
     }
@@ -56,5 +57,12 @@ public class ComController {
         log.info("点赞，id为：{}", id);
         comService.addLikes(id);
         return Result.success();
+    }
+
+    //根据master_id查询该评论下的所有子评论
+    @GetMapping("/getChildCom")
+    public Result getChildCom(@RequestParam Integer master_id){
+        log.info("根据master_id查询该评论下的所有子评论，id为：{}", master_id);
+        return Result.success(comService.getChildCom(master_id));
     }
 }

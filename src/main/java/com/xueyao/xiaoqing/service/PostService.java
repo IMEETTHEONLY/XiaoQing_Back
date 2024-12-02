@@ -9,7 +9,32 @@ import java.util.ArrayList;
 public interface PostService {
     void addPost(String content);
 
-    void deletePost(Integer id);
+//    void deletePost(Integer id);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     PageBean getPost(Integer page, Integer pageSize, String name);
+
+    void deletePost(Integer id);
 }

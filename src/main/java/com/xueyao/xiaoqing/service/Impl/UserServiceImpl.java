@@ -100,4 +100,14 @@ public class UserServiceImpl implements UserService {
         Integer id = (Integer) map.get("id");
         userMapper.updateEds(id, stu_number, eds_psd);
     }
+
+
+      //根据用户id获取用户信息
+    @Override
+    public User getUserById(Integer id) {
+        return userMapper.getUserInfo(id);
+    }
+
+
+
 }

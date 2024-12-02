@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/post")
 @Slf4j
+
 public class PostController {
     //注入postService
     @Autowired
@@ -27,6 +28,7 @@ public class PostController {
     }
 
 
+
     //删除帖子
     @DeleteMapping("/delete")
     public Result deletePost(@RequestParam Integer id){
@@ -37,8 +39,10 @@ public class PostController {
     }
 
 
+
     //查询帖子，如果说有条件根据条件查询帖子
     @GetMapping("/get")
+
     public Result gegPost(@RequestParam(defaultValue = "1") Integer page, @RequestParam(defaultValue = "10") Integer page_size, String name){
         log.info("查询帖子，页码为：{}，页大小为：{}，关键字为：{}", page, page_size, name);
         //调用service分页查询

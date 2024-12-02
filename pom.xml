@@ -31,6 +31,15 @@
     </properties>
     <dependencies>
 
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version> <!-- 指定你需要的版本号 -->
+            <scope>provided</scope> <!-- 表示这个依赖在运行时由Servlet容器提供 -->
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

@@ -35,6 +35,9 @@ public class PostServiceImpl implements PostService {
         postMapper.deletePost(id);
 
     }
+
+
+
     //分页获取帖子
     @Override
     public PageBean getPost(Integer page, Integer pageSize, String name) {

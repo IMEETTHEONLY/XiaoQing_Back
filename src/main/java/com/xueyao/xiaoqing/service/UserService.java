@@ -21,4 +21,6 @@ public interface UserService {
     void updateSign(String signature);
 
     void updateEds(Map<String, String> eds);
+    //根据用户id获取用户信息
+    User getUserById(Integer id);
 }

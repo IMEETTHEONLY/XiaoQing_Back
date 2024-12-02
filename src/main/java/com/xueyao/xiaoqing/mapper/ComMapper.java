@@ -4,6 +4,7 @@ import com.xueyao.xiaoqing.pojo.Comment;
 import org.apache.ibatis.annotations.*;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Mapper
@@ -32,7 +33,9 @@ public interface ComMapper {
 
     //点赞量+1
     @Update("update comm set likes=likes+1 where id=#{id}")
-    List<Comment> addlikes(Integer id, Integer likes);
+    void addlikes(Integer id, Integer likes);
 
-
+    //查询子评论根据master_id
+    @Select("select * from comm where master_id=#{masterId}")
+    ArrayList<Comment> getChildCom(Integer masterId);
 }
